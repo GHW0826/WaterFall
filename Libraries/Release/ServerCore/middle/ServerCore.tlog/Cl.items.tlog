@@ -1,0 +1,7 @@
+D:\git\WaterFall\ServerCore\CoreGlobal.cpp;D:\git\WaterFall\Libraries\Release\ServerCore\middle\CoreGlobal.obj
+D:\git\WaterFall\ServerCore\CorePch.cpp;D:\git\WaterFall\Libraries\Release\ServerCore\middle\CorePch.obj
+D:\git\WaterFall\ServerCore\CoreTLS.cpp;D:\git\WaterFall\Libraries\Release\ServerCore\middle\CoreTLS.obj
+D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp;D:\git\WaterFall\Libraries\Release\ServerCore\middle\DeadLockProfiler.obj
+D:\git\WaterFall\ServerCore\Lock.cpp;D:\git\WaterFall\Libraries\Release\ServerCore\middle\Lock.obj
+D:\git\WaterFall\ServerCore\pch.cpp;D:\git\WaterFall\Libraries\Release\ServerCore\middle\pch.obj
+D:\git\WaterFall\ServerCore\ThreadManager.cpp;D:\git\WaterFall\Libraries\Release\ServerCore\middle\ThreadManager.obj

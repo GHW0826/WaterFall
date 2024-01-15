@@ -1,0 +1,15 @@
+﻿  pch.cpp
+  CoreGlobal.cpp
+  CorePch.cpp
+  CoreTLS.cpp
+  DeadLockProfiler.cpp
+D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp(44,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp(48,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp(108,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  Lock.cpp
+D:\git\WaterFall\ServerCore\Lock.cpp(34,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+D:\git\WaterFall\ServerCore\Lock.cpp(48,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+D:\git\WaterFall\ServerCore\Lock.cpp(79,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+D:\git\WaterFall\ServerCore\Lock.cpp(92,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  ThreadManager.cpp
+  ServerCore.vcxproj -> D:\git\WaterFall\Libraries\Release\ServerCore\ServerCore.lib
