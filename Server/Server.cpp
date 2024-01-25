@@ -9,19 +9,11 @@
 #include <memory>
 #include "Memory.h"
 
+#include "Allocator.h"
 
 int main() {
 
-	// 가상 메모리 기본
-	SYSTEM_INFO info;
-	::GetSystemInfo(&info);
-
-	info.dwPageSize;
-	info.dwAllocationGranularity; 
-
-	// 
-	//
-	int* test =(int*)::VirtualAlloc(nullptr, 4, MEM_RELEASE | MEM_COMMIT, PAGE_READWRITE);
+	Vector<int32> v(100);
 
 	return 0;
 }
