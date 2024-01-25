@@ -1,16 +1,33 @@
 ﻿  pch.cpp
+  Allocator.cpp
   CoreGlobal.cpp
   CorePch.cpp
   CoreTLS.cpp
   DeadLockProfiler.cpp
-D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp(44,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
-D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp(48,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
-D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp(108,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\DeadLockProfiler.cpp(42,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/DeadLockProfiler.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\DeadLockProfiler.cpp(46,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/DeadLockProfiler.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\DeadLockProfiler.cpp(104,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/DeadLockProfiler.cpp'을(를) 컴파일하는 중)
+  
   Lock.cpp
-D:\git\WaterFall\ServerCore\Lock.cpp(34,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
-D:\git\WaterFall\ServerCore\Lock.cpp(48,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
-D:\git\WaterFall\ServerCore\Lock.cpp(79,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
-D:\git\WaterFall\ServerCore\Lock.cpp(92,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Lock.cpp(33,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/Lock.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Lock.cpp(46,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/Lock.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Lock.cpp(76,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/Lock.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Lock.cpp(88,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/Lock.cpp'을(를) 컴파일하는 중)
+  
+  Memory.cpp
+  RefCountable.cpp
   ThreadManager.cpp
   코드를 생성하고 있습니다...
-  ServerCore.vcxproj -> D:\git\WaterFall\Libraries\Debug\ServerCore\ServerCore.lib
+  ServerCore.vcxproj -> C:\Users\김성수\Documents\kss\WaterFall\Libraries\Debug\ServerCore\ServerCore.lib

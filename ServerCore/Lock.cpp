@@ -4,8 +4,7 @@
 #include "CorePch.h"
 #include "DeadLockProfiler.h"
 
-void Lock::WriteLock(const char* name)
-{
+void Lock::WriteLock(const char* name) {
 #if _DEBUG
 	GDeadLockProfiler->PushLock(name);
 #endif
@@ -37,8 +36,7 @@ void Lock::WriteLock(const char* name)
 	}
 }
 
-void Lock::WriteUnLock(const char* name)
-{
+void Lock::WriteUnLock(const char* name) {
 #if _DEBUG
 	GDeadLockProfiler->PopLock(name);
 #endif
@@ -53,8 +51,7 @@ void Lock::WriteUnLock(const char* name)
 	}
 }
 
-void Lock::ReadLock(const char* name)
-{
+void Lock::ReadLock(const char* name) {
 #if _DEBUG
 	GDeadLockProfiler->PushLock(name);
 #endif
@@ -82,8 +79,7 @@ void Lock::ReadLock(const char* name)
 	}
 }
 
-void Lock::ReadUnLock(const char* name)
-{
+void Lock::ReadUnLock(const char* name) {
 #if _DEBUG
 	GDeadLockProfiler->PopLock(name);
 #endif

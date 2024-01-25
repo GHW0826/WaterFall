@@ -5,18 +5,15 @@
 
 
 
-ThreadManager::ThreadManager()
-{
+ThreadManager::ThreadManager() {
 	// Main Thread
 	InitTLS();
 }
-ThreadManager::~ThreadManager()
-{
+ThreadManager::~ThreadManager() {
 	Join();
 }
 
-void ThreadManager::Launch(function<void(void)> callback)
-{
+void ThreadManager::Launch(function<void(void)> callback) {
 	LockGuard guard(_lock);
 
 	_threads.push_back(thread([=]() {
@@ -26,20 +23,17 @@ void ThreadManager::Launch(function<void(void)> callback)
 	}));
 }
 
-void ThreadManager::Join()
-{
+void ThreadManager::Join() {
 	for (auto& t : _threads) {
 		if (t.joinable())
 			t.join();
 	}
 }
 
-void ThreadManager::InitTLS()
-{
+void ThreadManager::InitTLS() {
 	static Atomic<uint32> SThreadId = 1;
 	LThreadId = SThreadId.fetch_add(1);
 }
 
 void ThreadManager::DestroyTLS()
-{
-}
+{}

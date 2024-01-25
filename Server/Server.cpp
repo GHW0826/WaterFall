@@ -6,23 +6,22 @@
 
 #include "PlayerManager.h"
 #include "AccountManager.h"
+#include <memory>
+#include "Memory.h"
 
-int main()
-{
-	GThreadManager->Launch([=] {
-		while (true) {
-			cout << "PlayerThenAccount" << endl;
-			GPlayerManager.PlayerThenAccount();
-			this_thread::sleep_for(100ms);
-		}
-		});
-	GThreadManager->Launch([=] {
-		while (true) {
-			cout << "AccountThenPlayer" << endl;
-			GAccountManager.AccountThenPlayer();
-			this_thread::sleep_for(100ms);
-		}
-		});
 
-	GThreadManager->Join();
+int main() {
+
+	// 가상 메모리 기본
+	SYSTEM_INFO info;
+	::GetSystemInfo(&info);
+
+	info.dwPageSize;
+	info.dwAllocationGranularity; 
+
+	// 
+	//
+	int* test =(int*)::VirtualAlloc(nullptr, 4, MEM_RELEASE | MEM_COMMIT, PAGE_READWRITE);
+
+	return 0;
 }

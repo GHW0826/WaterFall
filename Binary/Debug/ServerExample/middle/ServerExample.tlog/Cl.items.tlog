@@ -1,6 +1,6 @@
-D:\git\WaterFall\Server\AccountManager.cpp;D:\git\WaterFall\Binary\Debug\ServerExample\middle\AccountManager.obj
-D:\git\WaterFall\Server\ConcurrentQueue.cpp;D:\git\WaterFall\Binary\Debug\ServerExample\middle\ConcurrentQueue.obj
-D:\git\WaterFall\Server\ConcurrentStack.cpp;D:\git\WaterFall\Binary\Debug\ServerExample\middle\ConcurrentStack.obj
-D:\git\WaterFall\Server\pch.cpp;D:\git\WaterFall\Binary\Debug\ServerExample\middle\pch.obj
-D:\git\WaterFall\Server\PlayerManager.cpp;D:\git\WaterFall\Binary\Debug\ServerExample\middle\PlayerManager.obj
-D:\git\WaterFall\Server\Server.cpp;D:\git\WaterFall\Binary\Debug\ServerExample\middle\Server.obj
+C:\Users\김성수\Documents\kss\WaterFall\Server\AccountManager.cpp;C:\Users\김성수\Documents\kss\WaterFall\Binary\Debug\ServerExample\middle\AccountManager.obj
+C:\Users\김성수\Documents\kss\WaterFall\Server\ConcurrentQueue.cpp;C:\Users\김성수\Documents\kss\WaterFall\Binary\Debug\ServerExample\middle\ConcurrentQueue.obj
+C:\Users\김성수\Documents\kss\WaterFall\Server\ConcurrentStack.cpp;C:\Users\김성수\Documents\kss\WaterFall\Binary\Debug\ServerExample\middle\ConcurrentStack.obj
+C:\Users\김성수\Documents\kss\WaterFall\Server\pch.cpp;C:\Users\김성수\Documents\kss\WaterFall\Binary\Debug\ServerExample\middle\pch.obj
+C:\Users\김성수\Documents\kss\WaterFall\Server\PlayerManager.cpp;C:\Users\김성수\Documents\kss\WaterFall\Binary\Debug\ServerExample\middle\PlayerManager.obj
+C:\Users\김성수\Documents\kss\WaterFall\Server\Server.cpp;C:\Users\김성수\Documents\kss\WaterFall\Binary\Debug\ServerExample\middle\Server.obj

@@ -5,8 +5,7 @@
 /*----------------------
 * DeadLockProfiler
 *----------------------*/
-void DeadLockProfiler::PushLock(const char* name)
-{
+void DeadLockProfiler::PushLock(const char* name) {
 	LockGuard guard(_lock);
 
 	// 아이디를 찾거나 발급한다
@@ -36,8 +35,7 @@ void DeadLockProfiler::PushLock(const char* name)
 	_lockStack.push(lockId);
 }
 
-void DeadLockProfiler::PopLock(const char* name)
-{
+void DeadLockProfiler::PopLock(const char* name) {
 	LockGuard guard(_lock);
 
 	if (_lockStack.empty())
@@ -50,8 +48,7 @@ void DeadLockProfiler::PopLock(const char* name)
 	_lockStack.pop();
 }
 
-void DeadLockProfiler::CheckCycle()
-{
+void DeadLockProfiler::CheckCycle() {
 	const int32 lockCount = static_cast<int32>(_nameToId.size());
 	_discoveredOrder = vector<int32>(lockCount, -1);
 	_discoveredCount = 0;
@@ -67,8 +64,7 @@ void DeadLockProfiler::CheckCycle()
 	_parent.clear();
 }
 
-void DeadLockProfiler::Dfs(int32 here)
-{
+void DeadLockProfiler::Dfs(int32 here) {
 	if (_discoveredOrder[here] != -1)
 		return;
 
