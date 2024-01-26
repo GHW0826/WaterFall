@@ -7,6 +7,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{bd696d5e-3a01-4e77-b03f-4c9d02a206e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\study">
+      <UniqueIdentifier>{20422dcd-e89b-4dda-afc2-cdbc5feedad9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Server.cpp">
@@ -15,26 +18,28 @@
     <ClCompile Include="pch.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="ConcurrentQueue.cpp">
-      <Filter>Main</Filter>
+    <ClCompile Include="LockFreeStack.cpp">
+      <Filter>Main\study</Filter>
     </ClCompile>
     <ClCompile Include="ConcurrentStack.cpp">
-      <Filter>Main</Filter>
+      <Filter>Main\study</Filter>
     </ClCompile>
-    <ClCompile Include="AccountManager.cpp" />
-    <ClCompile Include="PlayerManager.cpp" />
+    <ClCompile Include="ConcurrentQueue.cpp">
+      <Filter>Main\study</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="ConcurrentQueue.h">
-      <Filter>Main</Filter>
+    <ClInclude Include="LockFreeStack.h">
+      <Filter>Main\study</Filter>
     </ClInclude>
     <ClInclude Include="ConcurrentStack.h">
-      <Filter>Main</Filter>
+      <Filter>Main\study</Filter>
     </ClInclude>
-    <ClInclude Include="AccountManager.h" />
-    <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="ConcurrentQueue.h">
+      <Filter>Main\study</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

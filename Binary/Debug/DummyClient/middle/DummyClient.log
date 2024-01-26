@@ -1,4 +1,4 @@
-﻿  DummyClient.cpp
-C:\Users\김성수\Documents\kss\WaterFall\DummyClient\DummyClient.cpp(5,2): error C3861: 'HelloWorld': 식별자를 찾을 수 없습니다.
-  (소스 파일 '/DummyClient.cpp'을(를) 컴파일하는 중)
+﻿  pch.cpp
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\ObjectPool.h(14,54): error C1075: '{': 일치하는 토큰을 찾을 수 없습니다.
+  (소스 파일 'pch.cpp'을(를) 컴파일하는 중)
   

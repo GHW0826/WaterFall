@@ -27,7 +27,29 @@ C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Lock.cpp(88,3): warning C4
   (소스 파일 '/Lock.cpp'을(를) 컴파일하는 중)
   
   Memory.cpp
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Memory.cpp(75,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/Memory.cpp'을(를) 컴파일하는 중)
+  
+  MemoryPool.cpp
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\MemoryPool.cpp(52,3): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/MemoryPool.cpp'을(를) 컴파일하는 중)
+  
+  NetAddress.cpp
+  ObjectPool.cpp
   RefCountable.cpp
+  SocketUtils.cpp
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\SocketUtils.cpp(11,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/SocketUtils.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\SocketUtils.cpp(15,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/SocketUtils.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\SocketUtils.cpp(16,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/SocketUtils.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\SocketUtils.cpp(17,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/SocketUtils.cpp'을(를) 컴파일하는 중)
+  
   ThreadManager.cpp
   코드를 생성하고 있습니다...
   ServerCore.vcxproj -> C:\Users\김성수\Documents\kss\WaterFall\Libraries\Debug\ServerCore\ServerCore.lib
