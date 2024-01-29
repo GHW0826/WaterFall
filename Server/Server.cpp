@@ -11,38 +11,28 @@
 #include "Allocator.h"
 #include "LockFreeStack.h"
 
-class Knight {
-public:
-	int32 _hp = rand() % 1000;
-};
-
-class Monster {
-public:
-	int64 _id = 0;
-};
-
-SLIST_HEADER* GHeader;
-DECLSPEC_ALIGN(16)
-class Data {
-public:
-	SLIST_ENTRY _entry;
-	int64 _rand = rand() % 1000;
-};
-
 #include "SocketUtils.h"
+#include "Listener.h"
+#include "Service.h"
+#include "Session.h"
 
 int main() {
 
-	SOCKET socket = SocketUtils::CreateSocket();
+	ServerServiceRef service = MakeShared<ServerService>(
+		NetAddress(L"127.0.0.1", 7777),
+		MakeShared<IocpCore>(),
+		MakeShared<Session>, // TODO Sessionmanager
+		100);
 
-	SocketUtils::BindAnyAddress(socket, 7777);
-	SocketUtils::Listen(socket);
+	ASSERT_CRASH(service->Start());
 
-	::accept(socket, nullptr, nullptr);
-
-	SOCKET clientSocket = ::accept(socket, nullptr, nullptr);
-
-	cout << "Client Conencted!" << endl;
+	for (int32 i = 0; i < 5; ++i) {
+		GThreadManager->Launch([=]() {
+			while (true) {
+				service->GetIocpCore()->Dispatch();
+			}
+		});
+	}
 
 	GThreadManager->Join();
 

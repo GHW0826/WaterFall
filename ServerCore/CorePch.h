@@ -7,6 +7,7 @@
 #include "CoreTLS.h"
 #include "CoreGlobal.h"
 #include "Container.h"
+#include "Memory.h"
 
 #include <Windows.h>
 #include <iostream>

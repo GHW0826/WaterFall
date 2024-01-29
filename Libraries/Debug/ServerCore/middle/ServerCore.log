@@ -13,6 +13,15 @@ C:\Users\김성수\Documents\kss\WaterFall\ServerCore\DeadLockProfiler.cpp(46,3)
 C:\Users\김성수\Documents\kss\WaterFall\ServerCore\DeadLockProfiler.cpp(104,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
   (소스 파일 '/DeadLockProfiler.cpp'을(를) 컴파일하는 중)
   
+  IocpCore.cpp
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\IocpCore.cpp(8,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/IocpCore.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\IocpCore.cpp(30,66): warning C4805: '==': 연산에 'BOOL' 형식과 'bool' 형식을 함께 사용하는 것은 안전하지 않습니다.
+  (소스 파일 '/IocpCore.cpp'을(를) 컴파일하는 중)
+  
+  IocpEvent.cpp
+  Listener.cpp
   Lock.cpp
 C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Lock.cpp(33,4): warning C4552: '-': 식의 결과가 사용되지 않습니다.
   (소스 파일 '/Lock.cpp'을(를) 컴파일하는 중)
@@ -37,6 +46,11 @@ C:\Users\김성수\Documents\kss\WaterFall\ServerCore\MemoryPool.cpp(52,3): warn
   NetAddress.cpp
   ObjectPool.cpp
   RefCountable.cpp
+  Service.cpp
+C:\Users\김성수\Documents\kss\WaterFall\ServerCore\Service.cpp(45,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
+  (소스 파일 '/Service.cpp'을(를) 컴파일하는 중)
+  
+  Session.cpp
   SocketUtils.cpp
 C:\Users\김성수\Documents\kss\WaterFall\ServerCore\SocketUtils.cpp(11,2): warning C4552: '-': 식의 결과가 사용되지 않습니다.
   (소스 파일 '/SocketUtils.cpp'을(를) 컴파일하는 중)

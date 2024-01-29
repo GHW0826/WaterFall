@@ -5,7 +5,6 @@
 
 class MemoryPool;
 
-
 class Memory {
 	enum {
 		// ~1024바이트까지는 32바이트 단위 풀,
@@ -44,9 +43,9 @@ void xdelete(Type* obj) {
 	PoolAllocator::Release(obj);
 }
 
-template<typename Type>
-shared_ptr<Type> MakeShared() {
-	return shared_ptr<Type> { xnew<Type>(), xdelete<Type>() };
+template<typename Type, typename... Args>
+shared_ptr<Type> MakeShared(Args&&... args) {
+	return shared_ptr<Type> { xnew<Type>(std::forward<Args>(args)...), xdelete<Type> };
 }
 
 #endif
