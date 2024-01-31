@@ -16,6 +16,14 @@
 #include "Service.h"
 #include "Session.h"
 
+class GameSession : public Session {
+	/* 컨텐츠 코드에서 오버로딩 */
+	virtual void OnConnected() {}
+	virtual int32 OnRecv(BYTE* buffer, int32 len) { return len; }
+	virtual void OnSend(int32 len) {}
+	virtual void OnDisconnected() {}
+};
+
 int main() {
 
 	ServerServiceRef service = MakeShared<ServerService>(

@@ -94,6 +94,7 @@ void Listener::ProcessAccept(AcceptEvent* acceptEvent) {
 	}
 
 	session->SetNetAddress(NetAddress(sockAddress));
+	session->ProcessConnect();
 
 	cout << "Client Connected!" << endl;
 

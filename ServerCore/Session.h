@@ -6,17 +6,49 @@
 #include "IocpEvent.h"
 #include "NetAddress.h"
 
+class Service;
+
 // listner와 마찬가지로 IocpCore에 등록할 대상
 class Session : public IocpObject {
+
+	friend class Listener;
+	friend class IocpCore;
+	friend class Service;
+
 public:
 	Session();
 	virtual ~Session();
+public:
+
+	void Disconnect(const WCHAR* cause);
+
+	FORCEINLINE shared_ptr<Service> GetService() { return _service.lock(); }
+	FORCEINLINE void SetService(shared_ptr<Service> service) { _service = service; }
 public:
 	/* 정보 관련 */
 	FORCEINLINE void SetNetAddress(NetAddress address) { _netAddress = address; }
 	FORCEINLINE NetAddress GetAddress() { return _netAddress; }
 	FORCEINLINE SOCKET GetSocket() { return _socket; }
-public:
+	FORCEINLINE bool IsConnected() { return _connected; }
+	FORCEINLINE SessionRef GetSessionRef() { return static_pointer_cast<Session>(shared_from_this()); }
+private:
+	/* 전송 관련 */
+	void RegisterConnect();
+	void RegisterRecv();
+	void RegisterSend();
+
+	void ProcessConnect();
+	void ProcessRecv(int32 numOfBytes);
+	void ProcessSend(int32 numOfBytes);
+
+	void HandleError(int32 errorCode);
+protected:
+	/* 컨텐츠 코드에서 오버로딩 */
+	virtual void OnConnected() {}
+	virtual int32 OnRecv(BYTE* buffer, int32 len) { return len; }
+	virtual void OnSend(int32 len) {}
+	virtual void OnDisconnected() {}
+private:
 	/* 인터페이스 구현 */
 	virtual HANDLE GetHandle() override;
 	virtual void Dispatch(class IocpEvent* iocpEvent, int32 numOfBytes = 0) override;
@@ -24,9 +56,20 @@ public:
 	// temp
 	char _recvBuffer[100];
 private:
+	weak_ptr<Service> _service;
 	SOCKET _socket = INVALID_SOCKET;
 	NetAddress _netAddress = {};
 	Atomic<bool> _connected = false;
+private:
+	USE_LOCK;
+
+	/* 수신 관련 */
+
+
+	/* 송신 관련 */
+private:
+	/* IocpEvent 재사용 */
+	RecvEvent _recvEvent;
 };
 
 #endif

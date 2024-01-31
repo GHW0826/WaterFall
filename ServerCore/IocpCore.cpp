@@ -19,6 +19,8 @@ bool IocpCore::Register(IocpObjectRef iocpObject) {
 		/* key (session)reinterpret_cast<ULONG_PTR>(iocpObject) */ 0, 0);
 }
 
+
+// 스레드들이 계속 관찰하고 있다가
 bool IocpCore::Dispatch(uint32 timeoutMs) {
 
 	DWORD numOfBytes = 0;
@@ -26,6 +28,7 @@ bool IocpCore::Dispatch(uint32 timeoutMs) {
 	IocpObject* iocpObject = nullptr;
 	IocpEvent* iocpEvent = nullptr;
 
+	// 감지시 Dispatch를 호출 (session)
 	if (::GetQueuedCompletionStatus(_IocpHandle, OUT &numOfBytes, OUT &key,
 		OUT reinterpret_cast<LPOVERLAPPED*>(&iocpEvent), timeoutMs) == true) {
 
