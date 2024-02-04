@@ -14,18 +14,38 @@
 #include "SocketUtils.h"
 #include "Listener.h"
 #include "Service.h"
-#include "Session.h"
+#include "GameSession.h"
+#include "GameSessionManager.h"
 
-class GameSession : public Session {
+class GameSession2 : public PacketSession {
+public:
 	/* 컨텐츠 코드에서 오버로딩 */
-	virtual void OnConnected() {}
-	virtual int32 OnRecv(BYTE* buffer, int32 len) { return len; }
-	virtual void OnSend(int32 len) {}
-	virtual void OnDisconnected() {}
+	virtual void OnConnected() {
+	}
+	virtual void OnDisconnected() {
+	}
+
+	virtual int32 OnRecvPacket(BYTE* buffer, int32 len) override {
+		cout << "OnRecv Len = " << len << endl;
+		/*
+		SendBufferRef sendBuffer = MakeShared<SendBuffer>(4096);
+		sendBuffer->CopyData(buffer, len);
+		*/
+
+		SendBufferRef sendBuffer = GSendBufferManager->Open(4096);
+		::memcpy(sendBuffer->Buffer(), buffer, len);
+		sendBuffer->Close(len);
+		Send(sendBuffer);
+		return len;
+	}
+	virtual void OnSend(int32 len) override {
+		cout << "Send Len = " << len << endl;
+	}
 };
 
-int main() {
+char sendData[] = "Hello World";
 
+int main() {
 	ServerServiceRef service = MakeShared<ServerService>(
 		NetAddress(L"127.0.0.1", 7777),
 		MakeShared<IocpCore>(),
@@ -40,6 +60,21 @@ int main() {
 				service->GetIocpCore()->Dispatch();
 			}
 		});
+	}
+
+	while (true) {
+		SendBufferRef sendBuffer = GSendBufferManager->Open(4096);
+
+		BYTE* buffer = sendBuffer->Buffer();
+
+		reinterpret_cast<PacketHeader*>(buffer)->size = sizeof(sendData) + sizeof(PacketHeader);
+		reinterpret_cast<PacketHeader*>(buffer)->id = 1; // 1 : Hello msg
+
+		::memcpy(&buffer[4], buffer, sizeof(sendData));
+		sendBuffer->Close(sizeof(sendData) + sizeof(PacketHeader));
+
+		GSessionManager.BroadCast(sendBuffer);
+		this_thread::sleep_for(250ms);
 	}
 
 	GThreadManager->Join();

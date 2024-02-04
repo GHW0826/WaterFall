@@ -5,6 +5,7 @@
 #include "Types.h"
 #include "Allocator.h"
 
+#include <array>
 #include <stack>
 #include <vector>
 #include <list>
@@ -16,7 +17,9 @@
 #include <algorithm>
 using namespace std;
 
-// stlallocator를 이용한 STL
+
+template<typename Type, uint32 Size>
+using Array = array<Type, Size>;// stlallocator를 이용한 STL
 
 template<typename Type>
 using Vector = vector<Type, StlAllocator<Type>>;
