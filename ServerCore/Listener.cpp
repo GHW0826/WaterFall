@@ -50,6 +50,18 @@ bool Listener::StartAccept(ServerServiceRef service) {
 	return true;
 }
 
+void Listener::CloseSocket() {
+	SocketUtils::Close(_socket);
+}
+
+HANDLE Listener::GetHandle() { return reinterpret_cast<HANDLE>(_socket); }
+
+void Listener::Dispatch(IocpEvent* iocpEvent, int32 numOfBytes) {
+	// ASSERT_CRASH(iocpEvent->GetType() == EventType::Accept);
+	AcceptEvent* acceptvent = static_cast<AcceptEvent*>(iocpEvent);
+	ProcessAccept(acceptvent);
+}
+
 void Listener::RegisterAccept(AcceptEvent* acceptEvent) {
 	// 나중에 클라가 접속시 클라 관련 정보를 세션 클래스에 몰빵함
 
@@ -63,20 +75,14 @@ void Listener::RegisterAccept(AcceptEvent* acceptEvent) {
 		session->_recvBuffer.WritePos(), 0,
 		sizeof(SOCKADDR_IN) + 16, sizeof(SOCKADDR_IN) + 16,
 		OUT & bytesReceived, static_cast<LPOVERLAPPED>(acceptEvent))) {
-		const int32 errorCode = ::WSAGetLastError();
 
+		const int32 errorCode = ::WSAGetLastError();
 		// WSA_IO_PENDING = 아직 접속한 유저가 없다
 		if (errorCode != WSA_IO_PENDING) {
 			// 일단 다시 Accept 걸어준다.
 			RegisterAccept(acceptEvent);
 		}
 	}
-}
-
-void Listener::Dispatch(IocpEvent* iocpEvent, int32 numOfBytes) {
-	// ASSERT_CRASH(iocpEvent->GetType() == EventType::Accept);
-	AcceptEvent* acceptvent = static_cast<AcceptEvent*>(iocpEvent);
-	ProcessAccept(acceptvent);
 }
 
 void Listener::ProcessAccept(AcceptEvent* acceptEvent) {
@@ -96,18 +102,6 @@ void Listener::ProcessAccept(AcceptEvent* acceptEvent) {
 
 	session->SetNetAddress(NetAddress(sockAddress));
 	session->ProcessConnect();
-
-	cout << "Client Connected!" << endl;
-
 	RegisterAccept(acceptEvent);
 }
 
-
-void Listener::CloseSocket() {
-	SocketUtils::Close(_socket);
-}
-
-HANDLE Listener::GetHandle()
-{
-	return reinterpret_cast<HANDLE>(_socket);
-}

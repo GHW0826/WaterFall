@@ -1,13 +1,10 @@
 #pragma once
-#ifndef _LOCK_
-#define _LOCK_ 
+#ifndef __LOCK__
+#define __LOCK_ _
 
 #include "Types.h"
 
-/*------------------
-*	RW SpinLock
--------------------*/
-
+// RW SpinLock
 /*-----------------
 *
 * [WWWWWWWW][WWWWWWWW][RRRRRRRR][RRRRRRRR]
@@ -19,10 +16,8 @@
 // W -> W (o)
 // W -> R (o)
 // R -> W (X)
-class Lock
-{
-	enum : uint32
-	{
+class Lock {
+	enum : uint32 {
 		AQUIRE_TIMEOUT_TICK = 10000,
 		MAX_SPIN_COUNT = 5000,
 		WRITE_THREAD_MASK = 0xFFFF'0000,
@@ -43,11 +38,11 @@ private:
 /*------------------
 *	LockGuards
 -------------------*/
-class ReadLockGuard
-{
+class ReadLockGuard {
 public:
 	ReadLockGuard(Lock& lock, const char* name) 
-		: _lock(lock), _name(name) {
+		: _lock(lock), 
+		_name(name) {
 		_lock.ReadLock(name);
 	}
 	~ReadLockGuard() {
@@ -59,11 +54,11 @@ private:
 };
 
 
-class WriteLockGuard
-{
+class WriteLockGuard {
 public:
 	WriteLockGuard(Lock& lock, const char* name) 
-		: _lock(lock), _name(name) {
+		: _lock(lock), 
+		_name(name) {
 		_lock.WriteLock(name);
 	}
 	~WriteLockGuard() {

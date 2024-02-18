@@ -7,7 +7,6 @@
 // [32 비트 전용] [64 비트 전용] [] [] 
 // or
 // 통합 풀
-
 enum {
 	SLIST_ALIGNMENT = 16
 };
@@ -16,7 +15,8 @@ DECLSPEC_ALIGN(SLIST_ALIGNMENT)
 struct MemoryHeader : public SLIST_ENTRY
 {
 	// [MemoryHeader][Data]
-	MemoryHeader(int32 size) : allocSize(size)
+	MemoryHeader(int32 size) 
+		: allocSize(size)
 	{}
 
 	static void* AttachHeader(MemoryHeader* header, int32 size) {
@@ -46,11 +46,6 @@ private:
 	int32 _allocSize = 0;			//
 	atomic<int32> _useCount = 0;	// 할당된 메모리 갯수
 	atomic<int32> _reserveCount = 0;
-	
-	/*
-	USE_LOCK;
-	queue<MemoryHeader*> _queue;
-	*/
 };
 
 #endif

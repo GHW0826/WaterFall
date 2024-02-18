@@ -105,6 +105,7 @@ bool Session::RegisterConnect() {
 		}
 	}
 
+	return true;
 }
 
 bool Session::RegisterDisconnect() {

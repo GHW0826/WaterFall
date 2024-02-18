@@ -16,7 +16,7 @@ using SessionFactory = function<SessionRef(void)>;
 
 class Service : public enable_shared_from_this<Service> {
 public:
-	Service(
+	Service (
 		ServiceType type,
 		NetAddress address,
 		IocpCoreRef core,
@@ -31,6 +31,7 @@ public:
 	virtual void CloseService();
 
 	SessionRef CreateSession();
+	void Broadcast(SendBufferRef sendBuffer);
 	void AddSession(SessionRef session);
 	void ReleaseSession(SessionRef session);
 public:
@@ -42,7 +43,6 @@ public:
 	FORCEINLINE IocpCoreRef& GetIocpCore() { return _iocpCore; }
 protected:
 	USE_LOCK;
-
 	ServiceType _type;
 	NetAddress _netAddress = {};
 	IocpCoreRef _iocpCore;
@@ -64,6 +64,7 @@ public:
 		int32 maxSessionCount = 1
 	);
 	virtual ~ClientService() {}
+
 	virtual bool Start() override;
 };
 
@@ -76,6 +77,7 @@ public:
 		int32 maxSessionCount = 1
 	);
 	virtual ~ServerService() {}
+
 	virtual bool Start() override;
 	virtual void CloseService();
 private:

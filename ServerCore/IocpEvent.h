@@ -18,7 +18,6 @@ public:
 	IocpEvent(EventType type);
 
 	void Init();
-
 public:
 	EventType eventType;
 	IocpObjectRef owner;

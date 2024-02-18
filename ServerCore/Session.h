@@ -29,8 +29,8 @@ public:
 	bool Connect();
 	void Disconnect(const WCHAR* cause);
 
-	FORCEINLINE shared_ptr<Service> GetService() { return _service.lock(); }
-	FORCEINLINE void SetService(shared_ptr<Service> service) { _service = service; }
+	FORCEINLINE std::shared_ptr<Service> GetService() { return _service.lock(); }
+	FORCEINLINE void SetService(std::shared_ptr<Service> service) { _service = service; }
 public:
 	/* 정보 관련 */
 	FORCEINLINE void SetNetAddress(NetAddress address) { _netAddress = address; }
@@ -61,15 +61,8 @@ private:
 	/* 인터페이스 구현 */
 	virtual HANDLE GetHandle() override;
 	virtual void Dispatch(class IocpEvent* iocpEvent, int32 numOfBytes = 0) override;
-public:
-
-	// 복사를 하되 영역을 침범하지 않는다.
-	// Circular Buffer의 기초
-	// 복사 비용이 있음
-	char _sendBuffer[1000];
-	int32 _sendLen = 0;
 private:
-	weak_ptr<Service> _service;
+	std::weak_ptr<Service> _service;
 	SOCKET _socket = INVALID_SOCKET;
 	NetAddress _netAddress = {};
 	Atomic<bool> _connected = false;
@@ -112,7 +105,7 @@ public:
 
 protected:
 	virtual int32 OnRecv(BYTE* buffer, int32 len) sealed;
-	virtual int32 OnRecvPacket(BYTE* buffer, int32 len) abstract;
+	virtual void OnRecvPacket(BYTE* buffer, int32 len) abstract;
 };
 
 

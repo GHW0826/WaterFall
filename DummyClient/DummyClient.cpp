@@ -3,45 +3,46 @@
 #include "Service.h"
 #include "Session.h"
 #include "ThreadManager.h"
+#include "BufferReader.h"
+#include "ServerPacketHandler.h"
 
-// char sendData[] = "Hello World";
-class ServerSession : public PacketSession {
+char sendData[] = "Hello World";
+
+class ServerSession : public PacketSession
+{
 public:
-	/* 컨텐츠 코드에서 오버로딩 */
-	virtual void OnConnected() override {
+	~ServerSession() {
+		cout << "~ServerSession" << endl;
+	}
 
-		cout << "Connected To Server" << endl;
-		/*
-		SendBufferRef sendBuffer = MakeShared<SendBuffer>(4096);
-		sendBuffer->CopyData(sendData, sizeof(sendData));
-		SendBufferRef sendBuffer = GSendBufferManager->Open(4096);
-		::memcpy(sendBuffer->Buffer(), sendData, sizeof(sendData));
-		sendBuffer->Close(sizeof(sendData));
+	virtual void OnConnected() override {
+		//cout << "Connected To Server" << endl;
+		Protocol::C_LOGIN pkt;
+		auto sendBuffer = ServerPacketHandler::MakeSendBuffer(pkt);
 		Send(sendBuffer);
-		*/
+	}
+
+	virtual void OnRecvPacket(BYTE* buffer, int32 len) override {
+		PacketSessionRef session = GetPacketSessionRef();
+		PacketHeader* header = reinterpret_cast<PacketHeader*>(buffer);
+
+		// TODO : packetId 대역 체크
+		ServerPacketHandler::HandlePacket(session, buffer, len);
+	}
+
+	virtual void OnSend(int32 len) override {
+		//cout << "OnSend Len = " << len << endl;
 	}
 
 	virtual void OnDisconnected() override {
-		cout << "Discounted" << endl;
-	}
-
-	virtual int32 OnRecvPacket(BYTE* buffer, int32 len) override {
-
-		PacketHeader header = *(reinterpret_cast<PacketHeader*>(buffer));
-		cout << "Packet ID: " << header.id << " Size : " << header.size << endl;
-
-		char recvBuffer[4096];
-		::memcpy(recvBuffer, &buffer[4], header.size - sizeof(PacketHeader));
-		cout << "Msg : " << recvBuffer << endl;
-
-		return len;
-	}
-	virtual void OnSend(int32 len) override {
-		cout << "Send Len = " << len << endl;
+		//cout << "Disconnected" << endl;
 	}
 };
 
 int main() {
+
+	ServerPacketHandler::Init();
+
 	this_thread::sleep_for(1s);
 
 	ClientServiceRef service = MakeShared<ClientService>(
@@ -58,6 +59,15 @@ int main() {
 				service->GetIocpCore()->Dispatch();
 			}
 		});
+	}
+
+	Protocol::C_CHAT chatPkt;
+	chatPkt.set_msg(u8"Hello World!");
+	auto sendBuffer = ServerPacketHandler::MakeSendBuffer(chatPkt);
+
+	while (true) {
+		service->Broadcast(sendBuffer);
+		this_thread::sleep_for(1s);
 	}
 
 	GThreadManager->Join();

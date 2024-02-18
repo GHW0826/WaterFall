@@ -27,10 +27,9 @@ bool IocpCore::Dispatch(uint32 timeoutMs) {
 	ULONG_PTR key = 0;
 	IocpObject* iocpObject = nullptr;
 	IocpEvent* iocpEvent = nullptr;
-
 	// 감지시 Dispatch를 호출 (session)
 	if (::GetQueuedCompletionStatus(_IocpHandle, OUT &numOfBytes, OUT &key,
-		OUT reinterpret_cast<LPOVERLAPPED*>(&iocpEvent), timeoutMs) == true) {
+		OUT reinterpret_cast<LPOVERLAPPED*>(&iocpEvent), timeoutMs)) {
 
 		IocpObjectRef iocpObject = iocpEvent->owner;
 		iocpObject->Dispatch(iocpEvent, numOfBytes);

@@ -32,7 +32,6 @@ bool RecvBuffer::OnRead(int32 numOfBytes) {
 	if (numOfBytes > DataSize())
 		return false;
 
-
 	_readPos += numOfBytes;
 	return true;
 }

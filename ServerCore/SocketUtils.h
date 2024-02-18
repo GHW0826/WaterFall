@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __SOCKETUTILLS
-#define __SOCKETUTILLS
+#ifndef __SOCKETUTILLS__
+#define __SOCKETUTILLS__
 
 #include "NetAddress.h"
 

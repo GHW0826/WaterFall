@@ -4,19 +4,16 @@
 
 class SendBufferChunk;
 
-class SendBuffer : public enable_shared_from_this<SendBuffer> {
+class SendBuffer {
 public:
 	SendBuffer(SendBufferChunkRef owner, BYTE* buffer, int32 allocSize);
 	~SendBuffer();
 	
 	BYTE* Buffer() { return _buffer; }
-	int32 WriteSize() { return _writeSize; }
-	//int32 Capacity() { return static_cast<int32>(_buffer.size()); }
-	//void CopyData(void* data, int32 len);
+	uint32 AllocSize() { return _allocSize; }
+	uint32 WriteSize() { return _writeSize; }
 	void Close(uint32 writeSize);
 private:
-	//Vector<BYTE> _buffer;
-	//int32 _writeSize = 0;
 	BYTE* _buffer;				// 가리킨 메모리 공간
 	uint32 _allocSize = 0;
 	uint32 _writeSize = 0;

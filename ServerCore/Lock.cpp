@@ -46,9 +46,8 @@ void Lock::WriteUnLock(const char* name) {
 		CRASH("INVALID_UNLOCK_ORDER");
 
 	const int32 lockCount = --_writeCount;
-	if (lockCount == 0) {
+	if (lockCount == 0)
 		_lockFlag.store(EMPTY_FLAG);
-	}
 }
 
 void Lock::ReadLock(const char* name) {

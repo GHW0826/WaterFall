@@ -13,16 +13,20 @@ Service::Service(
 	_netAddress(address),
 	_iocpCore(core),
 	_sessionFactory(factory),
-	_maxSessionCount(maxSessionCount)
-{
+	_maxSessionCount(maxSessionCount) {
 }
 
-Service::~Service()
-{
+Service::~Service() {
 }
 
-void Service::CloseService()
-{
+void Service::CloseService() {
+}
+
+void Service::Broadcast(SendBufferRef sendBuffer) {
+	WRITE_LOCK;
+	for (const auto& session : _sessions) {
+		session->Send(sendBuffer);
+	}
 }
 
 SessionRef Service::CreateSession() {
@@ -49,14 +53,12 @@ void Service::ReleaseSession(SessionRef session) {
 
 
 
-
 ClientService::ClientService(
 	NetAddress address, 
 	IocpCoreRef core, 
 	SessionFactory factory, 
 	int32 maxSessionCount)
-	: Service(ServiceType::Client, address, core, factory, maxSessionCount)
-{
+	: Service(ServiceType::Client, address, core, factory, maxSessionCount) {
 }
 
 bool ClientService::Start() {
@@ -79,8 +81,7 @@ ServerService::ServerService(
 	IocpCoreRef core, 
 	SessionFactory factory, 
 	int32 maxSessionCount)
-	: Service(ServiceType::Server, address, core, factory, maxSessionCount)
-{
+	: Service(ServiceType::Server, address, core, factory, maxSessionCount) {
 }
 
 bool ServerService::Start() {
@@ -96,7 +97,7 @@ bool ServerService::Start() {
 	if (_listener->StartAccept(service) == false)
 		return false;
 
-	return false;
+	return true;
 }
 
 void ServerService::CloseService() {

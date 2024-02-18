@@ -1,13 +1,12 @@
 #pragma once
-#ifndef _THREADMANAGER_
-#define _THREADMANAGER_
+#ifndef __THREADMANAGER__
+#define __THREADMANAGER__
 
 #include <thread>
 #include <functional>
 
-/*----------------
-*	ThreadManager
-----------------*/
+
+// ThreadManager
 class ThreadManager
 {
 public:
@@ -19,6 +18,9 @@ public:
 
 	static void InitTLS();
 	static void DestroyTLS();
+
+	static void DoGlobalQueueWork();
+	static void DistributeReservedJobs();
 
 private:
 	Mutex	_lock;

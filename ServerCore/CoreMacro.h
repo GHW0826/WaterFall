@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _COREMACRO_
-#define _COREMACRO_
+#ifndef __COREMACRO__
+#define __COREMACRO__
 
 #define OUT
 
@@ -40,12 +40,13 @@
 {											\
 	uint32* crash = nullptr;				\
 	__analysis_assume(crash != nullptr);	\
-	*crash - 0xDEADBEEF;					\
+	*crash = 0xDEADBEEF;					\
 }											\
 
 #define ASSERT_CRASH(expr)					\
 {											\
-	if (!(expr)) {							\
+	if (!(expr))							\
+	{										\
 		CRASH("ASSERT_CRASH");				\
 		__analysis_assume(expr);			\
 	}										\

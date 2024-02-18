@@ -22,5 +22,7 @@ using namespace std;
 #include "TypeCast.h"
 #include "ObjectPool.h"
 #include "SendBuffer.h"
+#include "Session.h"
+#include "JobQueue.h"
 
 #endif

@@ -62,8 +62,6 @@ void* Memory::Allocate(int32 size) {
 	}
 #endif
 
-
-
 	return MemoryHeader::AttachHeader(header, allocSize);;
 }
 

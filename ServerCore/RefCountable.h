@@ -13,8 +13,7 @@ public:
 
 	int32 GetRefCount() { return _refCount; }
 	int32 AddRef() { return ++_refCount; }
-	int32 ReleaseRef()
-	{
+	int32 ReleaseRef() {
 		int32 refCount = --_refCount;
 		if (refCount == 0)
 			delete this;

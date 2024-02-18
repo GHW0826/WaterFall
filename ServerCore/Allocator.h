@@ -9,11 +9,12 @@ public:
 	static void		Release(void* ptr);
 };
 
-
 // StompAllocator
 // 할당을 뒤에서부터 함해서 오버 플로우를 잡음
 class StompAllocator {
-	enum { PAGE_SIZE = 0x1000 };
+	enum { 
+		PAGE_SIZE = 0x1000  // 4096
+	};
 public:
 	static void* Alloc(int32 size);
 	static void	 Release(void* ptr);
@@ -48,6 +49,13 @@ public:
 	void deallocate(T* ptr, size_t count) {
 		PoolAllocator::Release(ptr); // xxrelease(ptr);
 	}
+
+
+	template<typename U>
+	bool operator==(const StlAllocator<U>&) { return true; }
+
+	template<typename U>
+	bool operator!=(const StlAllocator<U>&) { return false; }
 };
 
 #endif

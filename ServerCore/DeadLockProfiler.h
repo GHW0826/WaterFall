@@ -7,9 +7,7 @@
 #include <map>
 
 
-/*----------------------
-* DeadLockProfiler 
-*----------------------*/
+// DeadLockProfiler
 class DeadLockProfiler
 {
 public:
