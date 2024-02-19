@@ -1,13 +1,17 @@
 D:\git\WaterFall\ServerCore\Allocator.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\Allocator.obj
 D:\git\WaterFall\ServerCore\BufferReader.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\BufferReader.obj
 D:\git\WaterFall\ServerCore\BufferWriter.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\BufferWriter.obj
+D:\git\WaterFall\ServerCore\ConsoleLog.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\ConsoleLog.obj
 D:\git\WaterFall\ServerCore\CoreGlobal.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\CoreGlobal.obj
 D:\git\WaterFall\ServerCore\CorePch.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\CorePch.obj
 D:\git\WaterFall\ServerCore\CoreTLS.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\CoreTLS.obj
 D:\git\WaterFall\ServerCore\DBBind.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\DBBind.obj
 D:\git\WaterFall\ServerCore\DBConnection.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\DBConnection.obj
 D:\git\WaterFall\ServerCore\DBConnectionPool.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\DBConnectionPool.obj
+D:\git\WaterFall\ServerCore\DBModel.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\DBModel.obj
+D:\git\WaterFall\ServerCore\DBSynchronizer.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\DBSynchronizer.obj
 D:\git\WaterFall\ServerCore\DeadLockProfiler.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\DeadLockProfiler.obj
+D:\git\WaterFall\ServerCore\FileUtils.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\FileUtils.obj
 D:\git\WaterFall\ServerCore\GlobalQueue.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\GlobalQueue.obj
 D:\git\WaterFall\ServerCore\IocpCore.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\IocpCore.obj
 D:\git\WaterFall\ServerCore\IocpEvent.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\IocpEvent.obj
@@ -29,3 +33,4 @@ D:\git\WaterFall\ServerCore\Service.cpp;D:\git\WaterFall\Libraries\Libs\Debug\Se
 D:\git\WaterFall\ServerCore\Session.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\Session.obj
 D:\git\WaterFall\ServerCore\SocketUtils.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\SocketUtils.obj
 D:\git\WaterFall\ServerCore\ThreadManager.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\ThreadManager.obj
+D:\git\WaterFall\ServerCore\XmlParser.cpp;D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\middle\XmlParser.obj

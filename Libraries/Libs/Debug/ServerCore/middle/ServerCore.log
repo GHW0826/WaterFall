@@ -1,2 +1,40 @@
-﻿  DBBind.cpp
+﻿  pch.cpp
+  Allocator.cpp
+  BufferReader.cpp
+  BufferWriter.cpp
+  ConsoleLog.cpp
+  CoreGlobal.cpp
+  CorePch.cpp
+  CoreTLS.cpp
+  DBBind.cpp
+  DBConnection.cpp
+  DBConnectionPool.cpp
+  DBModel.cpp
+  DBSynchronizer.cpp
+  DeadLockProfiler.cpp
+  FileUtils.cpp
+  GlobalQueue.cpp
+  IocpCore.cpp
+  IocpEvent.cpp
+  Job.cpp
+  JobTimer.cpp
+  LockQueue.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  JobQueue.cpp
+  Listener.cpp
+  Lock.cpp
+  Memory.cpp
+  MemoryPool.cpp
+  NetAddress.cpp
+  ObjectPool.cpp
+  RecvBuffer.cpp
+  RefCountable.cpp
+  SendBuffer.cpp
+  Service.cpp
+  Session.cpp
+  SocketUtils.cpp
+  ThreadManager.cpp
+  XmlParser.cpp
+  코드를 생성하고 있습니다...
   ServerCore.vcxproj -> D:\git\WaterFall\Libraries\Libs\Debug\ServerCore\ServerCore.lib

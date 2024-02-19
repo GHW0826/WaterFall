@@ -13,6 +13,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PacketGenerator", "Tools\Pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerExample", "ServerExample\ServerExample.vcxproj", "{C9FE3A09-ACA2-4587-B1F9-2F281791D37C}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ProcedureGenerator", "Tools\ProcedureGenerator\ProcedureGenerator.pyproj", "{8558A291-6A82-48B3-BAF8-90131E3C2ED1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,12 +67,19 @@ Global
 		{C9FE3A09-ACA2-4587-B1F9-2F281791D37C}.Release|x64.Build.0 = Release|x64
 		{C9FE3A09-ACA2-4587-B1F9-2F281791D37C}.Release|x86.ActiveCfg = Release|Win32
 		{C9FE3A09-ACA2-4587-B1F9-2F281791D37C}.Release|x86.Build.0 = Release|Win32
+		{8558A291-6A82-48B3-BAF8-90131E3C2ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8558A291-6A82-48B3-BAF8-90131E3C2ED1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8558A291-6A82-48B3-BAF8-90131E3C2ED1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8558A291-6A82-48B3-BAF8-90131E3C2ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8558A291-6A82-48B3-BAF8-90131E3C2ED1}.Release|x64.ActiveCfg = Release|Any CPU
+		{8558A291-6A82-48B3-BAF8-90131E3C2ED1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8D997999-D791-42DC-8DB3-CC7945D36A7E} = {D4C04765-9F4C-406D-8C59-61EF02EDC91D}
+		{8558A291-6A82-48B3-BAF8-90131E3C2ED1} = {D4C04765-9F4C-406D-8C59-61EF02EDC91D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8636BE0-CFC0-41FA-94EA-DBDBBBFEA7C0}
